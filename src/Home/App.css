@@ -10,12 +10,40 @@
     position: absolute;
     width: 100%;
 }
-.content {
+.content{
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-right: 10px;
+    margin-top: 40px;
+    position: relative;
+}
+.finder {
     color: #FFFFFF;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    margin-right: 10px;
     margin-top: 40px;
-    position: relative;
-    width: 60%;
+}
+.result {
+    color: #FFFFFF;
+    display: flex;
+    margin-right: 10px;
+    margin-top: 40px;
+}
+.foto {
+    border-radius: 500px;
+    height: 10vh;
+    padding: 12px;
+}
+.profile {
+    margin-top: 20px;
+}
+.tagname {
+    color: #e4eaf1;
+}
+.description {
+    font-size: 18px;
 }
