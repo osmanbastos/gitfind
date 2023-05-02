@@ -1,0 +1,21 @@
+.container {
+    align-items: flex-start;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+.background {
+    display: flex;
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+}
+.content {
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 40px;
+    position: relative;
+    width: 60%;
+}
