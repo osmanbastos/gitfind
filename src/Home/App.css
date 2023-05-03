@@ -15,7 +15,8 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    margin-right: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
     margin-top: 40px;
     position: relative;
 }
@@ -30,20 +31,37 @@
 .result {
     color: #FFFFFF;
     display: flex;
-    margin-right: 10px;
-    margin-top: 40px;
+    margin: 20px 0;
 }
-.foto {
-    border-radius: 500px;
-    height: 10vh;
-    padding: 12px;
+.photo {
+    border: 1px solid #85878a;
+    border-radius: 100px;
+    height: 150px;
+    margin-right: 10px;
 }
 .profile {
+    padding: 10px;
     margin-top: 20px;
+    margin-right: 50px;
 }
-.tagname {
-    color: #e4eaf1;
+.profile h3 {
+    font-size: 24px;
+    margin: 0;
 }
-.description {
+.profile span{
+    color: #c9cbce;
+    font-size: 12px;
+    margin: 0;
+}
+.profile p {
+    color: #c9cbce;
     font-size: 18px;
+    margin: 10px 0 0 0;
+}
+
+.repo {
+    color: #FFFFFF;
+    font-size: 20px;
+    margin: 12px 0;
+    text-align: center;
 }
