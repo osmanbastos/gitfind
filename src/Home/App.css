@@ -7,6 +7,7 @@
 .background {
     display: flex;
     height: 100vh;
+    opacity: 0.4;
     position: absolute;
     width: 100%;
 }
@@ -64,4 +65,32 @@
     font-size: 20px;
     margin: 12px 0;
     text-align: center;
+}
+.itemList {
+    color: #539BF5;
+    font-size: 18px;
+    margin: 20px 0;
+}
+.itemList p {
+    color: #FFFFFF;
+    font-size: 14px;
+    margin-top: 12px;
+}
+input {
+    background-color: transparent;
+    border: 1px solid #85878a;
+    border-radius: 12px;
+    color: #FFFFFF;
+    font-size: 18px;
+    padding: 10px;
+    width: 80%;
+}
+button {
+    background-color: #2D333B;
+    border: 1px solid #b2b5bb;
+    border-radius: 12px;
+    color: #FFFFFF;
+    font-size: 18px;
+    margin-left: 5px;
+    padding: 10px;
 }

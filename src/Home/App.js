@@ -1,38 +1,66 @@
 import Header from "../components/Header/Header";
 import background from '../assets/background.png'
 import './App.css'
-import Button from "../components/Button/Button";
-import Input from "../components/Input/Input";
-import Foto from '../assets/40010049.jpeg'
 import ItemList from "../components/ItemList/ItemList";
+import { useState } from "react";
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(null);
+  const [user, setUser] = useState("");
+  const [repos, setRepos] = useState(null);
+
+  const handleFind = async () => {
+    const userData = await fetch(`https://api.github.com/users/${user}`);
+    const newUser = await userData.json();
+
+    if(newUser.name){
+      const {avatar_url, name, bio, login} = newUser;
+      setCurrentUser({avatar_url, name, bio, login});
+
+      const reposData = await fetch(`https://api.github.com/users/${user}/repos`);
+      const newRepos = await reposData.json();
+
+      if(newRepos.length){
+        setRepos(newRepos);
+      }
+    }
+  }
+
+
   return (
     <div className="App">
       <Header/>
       <hr />
+
       <div className="container">
         <img src={background} className="background" alt="background app" />
         <div className="content">
+
           <div className="finder">
-              <Input />
-             <Button />
+              <input value={user} onChange={event => setUser(event.target.value)}/>
+              <button onClick={handleFind}>Find</button>
           </div>
-          <div className="result">
-            <img src={Foto} className="photo" alt="Foto do perfil" />
-            <div className="profile">
-              <h3>Osman Bastos</h3>
-              <span className="tagname">@osmanbastos</span>
-              <p className="description">FullStack Develloper Javascript | React-Native | Node.js</p>
+          {currentUser?.name ? (<>
+            <div className="result">
+              <img src={currentUser.avatar_url} className="photo" alt="Foto do perfil" />
+              <div className="profile">
+                <h3>{currentUser.name}</h3>
+                <span className="tagname">{currentUser.login}</span>
+                <p className="description">{currentUser.bio}</p>
+              </div>
             </div>
-          </div>
+          </>): null}
+
           <hr />
-          <div>
-            <h4 className="repo">Repositórios</h4>
-              <ItemList title="Repo1" description="repo description" />
-              <ItemList title="Repo2" description="repo description" />
-              <ItemList title="Repo3" description="repo description" />
-          </div>
+
+          {repos?.length ? (
+            <div>
+              <h4 className="repo">Repositórios</h4>
+              {repos.map(repo => (
+                <ItemList title={repo.name} description={repo.description} />
+              ))}
+            </div>
+          ): null}
         </div>
       </div>
     </div>
